@@ -32,7 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         CoreDataManager.instance.saveContext()
         
         // Извление записей
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Customer")
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: Customer.entityName)
         do {
             let results = try context.fetch(fetchRequest)
             for result in results as! [Customer] {

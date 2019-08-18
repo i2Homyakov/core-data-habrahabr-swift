@@ -13,7 +13,7 @@ import CoreData
 extension Customer {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<Customer> {
-        return NSFetchRequest<Customer>(entityName: "Customer")
+        return NSFetchRequest<Customer>(entityName: Customer.entityName)
     }
 
     @NSManaged public var info: String?
