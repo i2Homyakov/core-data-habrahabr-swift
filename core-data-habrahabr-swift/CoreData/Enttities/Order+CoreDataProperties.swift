@@ -12,7 +12,7 @@ import CoreData
 
 extension Order {
 
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<Order> {
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<Order> { // FIXME
         return NSFetchRequest<Order>(entityName: "Order")
     }
 

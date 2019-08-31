@@ -12,7 +12,7 @@ import CoreData
 
 extension Service {
 
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<Service> {
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<Service> { // FIXME
         return NSFetchRequest<Service>(entityName: "Service")
     }
 

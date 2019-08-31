@@ -12,7 +12,7 @@ import CoreData
 
 extension Customer {
 
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<Customer> {
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<Customer> { // FIXME: возможно стоит выпилить и для других сущностей
         return NSFetchRequest<Customer>(entityName: Customer.entityName)
     }
 

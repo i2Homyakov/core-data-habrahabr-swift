@@ -14,10 +14,25 @@ class CoreDataManager {
     static let instance = CoreDataManager()
     
     private init() {}
+
+    func makeFetchRequest<T: NSManagedObject>() -> NSFetchRequest<T> { // FIXME: вынести куда-то
+        return NSFetchRequest<T>(entityName: T.entityName)
+    }
     
     // Entity for Name
     func entityForName(entityName: String) -> NSEntityDescription {
         return NSEntityDescription.entity(forEntityName: entityName, in: persistentContainer.viewContext)!
+    }
+    
+    // Fetched Results Controller for Entity Name
+    func fetchedResultsController<T: NSManagedObject>(keyForSort: String) -> NSFetchedResultsController<T> {
+        let fetchRequest: NSFetchRequest<T> = makeFetchRequest()
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: keyForSort, ascending: true)]
+        let controller = NSFetchedResultsController(fetchRequest: fetchRequest,
+                                                    managedObjectContext: CoreDataManager.instance.persistentContainer.viewContext,
+                                                    sectionNameKeyPath: nil,
+                                                    cacheName: nil)
+        return controller
     }
     
     // MARK: - Core Data stack
